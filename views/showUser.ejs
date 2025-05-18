@@ -1,21 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/mainstyles.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/mainstyles.css" />
     <title>User Profile</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <%- include ('partials/navbar') %>
-    <div class="container">
+    <div class="list">
+      <% for( let i=0; i < userDetails.length; i++ ) { %>
 
-        <% for( let i=0; i < userDetails.length; i++ ) { %>
-
-            <div class="content">
+      <!-- <div class="content">
                 <header class="heading">
                     <a href="/users/<%= userDetails[i].uid %>"> Showing <%= userDetails[i].username %>
                         </a>
@@ -37,10 +35,15 @@
                         <%= userDetails[i].username %>
                     </div>
                 </div>
-            </div>
-            <% } %>
-            <%- include ('partials/credentials') %>
+            </div> -->
+      <div class="card">
+        <div style="background-color: rgb(114, 74, 74); height: fit-content;padding: 5px;color: white; font-size: large;">User</div>
+        <div style="font-size: small">
+          <%= userDetails[i].username %> (<%= userDetails[i].uid %>)
+        </div>
+      </div>
+      <% } %>
     </div>
-</body>
-<script src="/navbar.js"></script>
+  </body>
+  <script src="/navbar.js"></script>
 </html>

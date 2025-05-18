@@ -16,10 +16,7 @@
             flex-direction: column;
         } */
 
-        .footer {
-            border-radius: 0px !important;
 
-        }
         </style>
 </head>
 <body>
@@ -38,11 +35,10 @@
                     <option value="<%= user[i]._id %>"><%= user[i].username %></option>
                 <% } %>
             </select>
-            <input class="name" type="date" name="date" id="date">
-            <button class="submit">Add User</button>
+            <input class="name" type="date" name="date" id="date" required>
+            <button class="btn">Add Meeting</button>
         </form> 
     </div>
-<%- include ('partials/credentials') %> 
 
 </body>
 

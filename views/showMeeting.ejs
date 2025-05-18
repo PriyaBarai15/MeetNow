@@ -15,10 +15,22 @@
 
 <body>
     <%- include ('partials/navbar.ejs') %> 
-    <div class="container">
+    <div class="list">
         <% for( let i=meetDetails.length - 1; i>= 0; i-- ) { %>
-
-            <div class="content">
+            <div class="card">
+                <div style="background-color: rgb(114, 74, 74); height: fit-content;padding: 5px;">
+                    <a href="/meetings/<%= meetDetails[i].meetid %>" style="color: white; font-size: large;"> Meeting No.: <code> <%= meetDetails[i].meeting.meetid %> </code></a>
+                </div>
+                <div>Members</div>
+                <div style="font-size: small;">
+                    <li><%= meetDetails[i].user1.username %> (<%= meetDetails[i].user1.uid %>)</li>
+                    <li><%= meetDetails[i].user2.username %> (<%= meetDetails[i].user2.uid %>)</li>
+                </div>
+                <div>When:<span >
+                    <%= meetDetails[i].meeting.date ?? "none" %>
+                </span></div>
+            </div>
+            <!-- <div class="content">
                 <header class="heading">
                     <a href="/meetings/<%= meetDetails[i].meetid %>"> Showing <%= meetDetails[i].meeting.meetid %> Meet ID Details</a>
                 </header>
@@ -58,10 +70,9 @@
                 <div class="date">
                     <%= meetDetails[i].meeting.date %>
                 </div>
-            </div>
+            </div> -->
             <% } %>
     </div>
-    <%- include ('partials/credentials') %>
 </body>
 <script src="/navbar.js"></script>
 </html>
